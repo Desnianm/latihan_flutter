@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:latihan1_11pplg2/widget/custom_button.dart';
+import 'package:latihan1_11pplg2/widget/custom_textfield.dart';
 import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -43,48 +45,28 @@ String statuslogin = "login status";
 
             Container(
               margin: EdgeInsets.only(top: 10,bottom: 10),
-              child: TextField(
-                controller: txtUser,
-                decoration: InputDecoration(
-                  labelText: "username",
-                  border: OutlineInputBorder()
-                ),
-              ),
+              child: CustomTextfield(controller: txtUser,
+               label: "username",
+                labelColor: Colors.cyan,
+                 pass: false,
+                 isNumber: false)
             ), 
             
             Container(
               margin: EdgeInsets.only(top: 10,bottom: 10),
-              child: TextField(
-                controller: txtPassword,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: "password",
-                  border: OutlineInputBorder(),
-                ),
-              ),
+              child: CustomTextfield(controller: txtPassword,
+               label: "Password",
+               labelColor: Colors.amberAccent,
+               pass: true,
+               isNumber: false)
             ),
 
           Container(
               margin: EdgeInsets.all(10),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                   
-                    String username = txtUser.text;
-                    String password = txtPassword.text;
-
-                    setState(() {
-                      if (username == "admin" && password == "admin") {
-                        statuslogin = "Login berhasil";
-                      } else {
-                        statuslogin = "Login gagal";
-                      }
-                    });
-                  },
-                  child: Text("Login"),
-                ),
-              ),
+              child: CustomButton(myText: "Login", myTextColor: Colors.greenAccent, onPressed: (){
+                 print("login button clicked");
+              },
+              )
             ),
              Text(statuslogin),
              TextButton (
