@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/controllers/calculator_controllers.dart';
+import 'package:latihan1_11pplg2/routes/routes.dart';
 import 'package:latihan1_11pplg2/widget/custom_button.dart';
 import 'package:latihan1_11pplg2/widget/custom_textfield.dart';
 
@@ -91,6 +92,19 @@ class CalculatorPages extends StatelessWidget {
                     myTextColor: const Color.fromARGB(255, 253, 5, 5),
                     onPressed: calculatorController.clear,
                   ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    myText: "Football Player",
+                    myTextColor: const Color.fromARGB(255, 2, 97, 14),
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.football);
+                    },
+                  )
                 ),
               ],
             ),

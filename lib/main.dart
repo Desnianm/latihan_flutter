@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:latihan1_11pplg2/login_page.dart';
-import 'package:latihan1_11pplg2/pages/kalkulator_pages.dart';
+import 'controllers/football_player_controller.dart';
+import 'routes/routes.dart';
+import 'routes/pages.dart';
 
 void main() {
+  Get.put(FootballPlayerController()); // inisialisasi controller sekali di awal
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: CalculatorPages(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.calculator,
+      getPages: AppPages.pages,
     );
   }
 }
